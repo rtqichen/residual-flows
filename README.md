@@ -80,8 +80,7 @@ Each checkpoint contains two sets of parameters, one from training and one conta
 @inproceedings{chen2019residualflows,
   title={Residual Flows for Invertible Generative Modeling},
   author={Chen, Ricky T. Q. and Behrmann, Jens and Duvenaud, David and Jacobsen, J{\"{o}}rn{-}Henrik},
-  journal={CoRR},
-  volume={abs/1906.02735},
+  booktitle = {Advances in Neural Information Processing Systems},
   year={2019}
 }
 ```
