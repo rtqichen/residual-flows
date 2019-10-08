@@ -217,8 +217,8 @@ if __name__ == '__main__':
     elif args.arch == 'realnvp':
         blocks = []
         for _ in range(args.nblocks):
-            blocks.append(layers.CouplingLayer(2, swap=False))
-            blocks.append(layers.CouplingLayer(2, swap=True))
+            blocks.append(layers.CouplingBlock(2, swap=False))
+            blocks.append(layers.CouplingBlock(2, swap=True))
             if args.actnorm: blocks.append(layers.ActNorm1d(2))
             if args.batchnorm: blocks.append(layers.MovingBatchNorm1d(2))
         model = layers.SequentialFlow(blocks).to(device)
