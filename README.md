@@ -42,6 +42,8 @@ python extract_celeba_from_tfrecords
 
 ## Density Estimation Experiments
 
+***NOTE***: By default, O(1)-memory gradients are enabled. However, the logged bits/dim during training will not be an actual estimate of bits/dim but whatever scalar was used to generate the unbiased gradients. If you want to check the actual bits/dim for training (and have sufficient GPU memory), set `--neumann-grad=False`. Note however that the memory cost can stochastically vary during training if this flag is `False`.
+
 MNIST:
 ```
 python train_img.py --data mnist --imagesize 28 --actnorm True --wd 0 --save experiments/mnist
