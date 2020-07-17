@@ -154,7 +154,7 @@ class iResBlock(nn.Module):
                 jac_k = jac
                 for k in range(2, n_power_series + 1):
                     jac_k = torch.bmm(jac, jac_k)
-                    logdetgrad = logdetgrad + coeff_fn(k) * batch_trace(jac_k)
+                    logdetgrad = logdetgrad + (-1)**(k + 1) / k * coeff_fn(k) * batch_trace(jac_k)
 
             if self.training and self.n_power_series is None:
                 self.last_n_samples.copy_(torch.tensor(n_samples).to(self.last_n_samples))
