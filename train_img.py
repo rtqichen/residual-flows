@@ -12,13 +12,13 @@ import torchvision.transforms as transforms
 from torchvision.utils import save_image
 import torchvision.datasets as vdsets
 
-from lib.resflow import ACT_FNS, ResidualFlow
-import lib.datasets as datasets
-import lib.optimizers as optim
-import lib.utils as utils
-import lib.layers as layers
-import lib.layers.base as base_layers
-from lib.lr_scheduler import CosineAnnealingWarmRestarts
+from resflows.resflow import ACT_FNS, ResidualFlow
+import resflows.datasets as datasets
+import resflows.optimizers as optim
+import resflows.utils as utils
+import resflows.layers as layers
+import resflows.layers.base as base_layers
+from resflows.lr_scheduler import CosineAnnealingWarmRestarts
 
 # Arguments
 parser = argparse.ArgumentParser()

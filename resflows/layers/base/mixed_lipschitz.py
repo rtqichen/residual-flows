@@ -1,4 +1,4 @@
-from torch._six import container_abcs
+import collections.abc as container_abcs
 from itertools import repeat
 import math
 import torch

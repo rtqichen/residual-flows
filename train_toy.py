@@ -10,12 +10,12 @@ import numpy as np
 
 import torch
 
-import lib.optimizers as optim
-import lib.layers.base as base_layers
-import lib.layers as layers
-import lib.toy_data as toy_data
-import lib.utils as utils
-from lib.visualize_flow import visualize_transform
+import resflows.optimizers as optim
+import resflows.layers.base as base_layers
+import resflows.layers as layers
+import resflows.toy_data as toy_data
+import resflows.utils as utils
+from resflows.visualize_flow import visualize_transform
 
 ACTIVATION_FNS = {
     'relu': torch.nn.ReLU,

@@ -2,8 +2,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-import lib.layers as layers
-import lib.layers.base as base_layers
+import resflows.layers as layers
+import resflows.layers.base as base_layers
 
 ACT_FNS = {
     'softplus': lambda b: nn.Softplus(),
