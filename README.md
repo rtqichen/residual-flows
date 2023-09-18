@@ -20,6 +20,13 @@ As a result, Residual Flows scale to much larger networks and datasets.
  - PyTorch 1.0+
  - Python 3.6+
 
+## Package installation (optional)
+
+If you want to just use the `resflows` package, you can install it through pip:
+```
+pip install git+https://github.com/rtqichen/residual-flows
+```
+
 ## Preprocessing
 ImageNet:
 1. Follow instructions in `preprocessing/create_imagenet_benchmark_datasets`.
