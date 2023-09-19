@@ -64,6 +64,7 @@ parser.add_argument('--batchnorm', type=eval, default=False, choices=[True, Fals
 parser.add_argument('--dropout', type=float, default=0.)
 parser.add_argument('--fc', type=eval, default=False, choices=[True, False])
 parser.add_argument('--kernels', type=str, default='3-1-3')
+parser.add_argument('--logit-transform', type=eval, choices=[True, False], default=True)
 parser.add_argument('--add-noise', type=eval, choices=[True, False], default=True)
 parser.add_argument('--quadratic', type=eval, choices=[True, False], default=False)
 parser.add_argument('--fc-end', type=eval, choices=[True, False], default=True)
@@ -238,7 +239,7 @@ if args.data == 'cifar10':
             transforms.ToTensor(),
             add_noise,
         ])
-        init_layer = layers.LogitTransform(0.05)
+        init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     train_loader = torch.utils.data.DataLoader(
         datasets.CIFAR10(args.dataroot, train=True, transform=transform_train),
         batch_size=args.batchsize,
@@ -253,7 +254,7 @@ if args.data == 'cifar10':
     )
 elif args.data == 'mnist':
     im_dim = 1
-    init_layer = layers.LogitTransform(1e-6)
+    init_layer = layers.LogitTransform(1e-6) if args.logit_transform else None
     n_classes = 10
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(
@@ -281,7 +282,7 @@ elif args.data == 'mnist':
     )
 elif args.data == 'svhn':
     im_dim = 3
-    init_layer = layers.LogitTransform(0.05)
+    init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     n_classes = 10
     train_loader = torch.utils.data.DataLoader(
         vdsets.SVHN(
@@ -310,7 +311,7 @@ elif args.data == 'svhn':
     )
 elif args.data == 'celebahq':
     im_dim = 3
-    init_layer = layers.LogitTransform(0.05)
+    init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     if args.imagesize != 256:
         logger.info('Changing image size to 256.')
         args.imagesize = 256
@@ -335,7 +336,7 @@ elif args.data == 'celebahq':
     )
 elif args.data == 'celeba_5bit':
     im_dim = 3
-    init_layer = layers.LogitTransform(0.05)
+    init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     if args.imagesize != 64:
         logger.info('Changing image size to 64.')
         args.imagesize = 64
@@ -356,7 +357,7 @@ elif args.data == 'celeba_5bit':
     )
 elif args.data == 'imagenet32':
     im_dim = 3
-    init_layer = layers.LogitTransform(0.05)
+    init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     if args.imagesize != 32:
         logger.info('Changing image size to 32.')
         args.imagesize = 32
@@ -372,7 +373,7 @@ elif args.data == 'imagenet32':
     )
 elif args.data == 'imagenet64':
     im_dim = 3
-    init_layer = layers.LogitTransform(0.05)
+    init_layer = layers.LogitTransform(0.05) if args.logit_transform else None
     if args.imagesize != 64:
         logger.info('Changing image size to 64.')
         args.imagesize = 64
